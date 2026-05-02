@@ -1,6 +1,7 @@
+import ResumoPainel from "../components/Painel/resumoPainel/resumo"
+
 export default function Painel(){
     return(
-        <div>
-        </div>
+        <ResumoPainel pedidos={24} faturamento={2000} pedidosAtivos={30} />
     )
 }

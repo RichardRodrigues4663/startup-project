@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-    --Primary-color: rgb(207, 255, 207);
-    --Secondary-color: green;
-}
-
 aside{
     height: 100vh;
 }
@@ -36,13 +31,13 @@ nav{
 }
 
 .item-list-active{
-    background-color: var(--Primary-color);
-    color: var(--Secondary-color);
+    background-color: var(--bg-color-light);
+    color: var(--bg-color-dark);
 }
 
 .item-list-active:hover {
-    background-color: var(--Primary-color);
-    color: var(--Secondary-color);
+    background-color: var(--bg-color-light);
+    color: var(--bg-color-dark);
 }
 
 

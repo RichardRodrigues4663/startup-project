@@ -1,9 +1,9 @@
 //importando styles
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 //importnado compontentes
 import Sidebar from './components/Layout/sidebar/Sidebar.jsx';
+import Header from './components/Layout/Header/Header.jsx';
 import { Outlet } from 'react-router';
 
 function App() {
@@ -11,7 +11,10 @@ function App() {
   return (
     <main>
         <Sidebar></Sidebar>
-        <Outlet></Outlet>
+        <section>
+          <Header></Header>
+          <Outlet></Outlet>
+        </section>
     </main>
   )
 }
