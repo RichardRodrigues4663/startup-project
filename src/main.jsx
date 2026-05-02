@@ -10,7 +10,7 @@ import Pedidos from './pages/Pedidos.jsx'
 import Conversas from './pages/Conversas.jsx'
 import Produtos from './pages/Produtos.jsx'
 import Configuracoes from './pages/Configuracoes.jsx'
-import Relatorios from './pages/Relatorios'
+import Relatorios from './pages/Relatorios.jsx'
 
 const router = createBrowserRouter([
   {

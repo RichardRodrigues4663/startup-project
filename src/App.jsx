@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 //importnado compontentes
-import Sidebar from './components/Layout/sidebar/Sidebar';
+import Sidebar from './components/Layout/sidebar/Sidebar.jsx';
 import { Outlet } from 'react-router';
 
 function App() {
