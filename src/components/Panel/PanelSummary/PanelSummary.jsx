@@ -1,6 +1,6 @@
 import './index.css'
 
-export default function ResumoPainel({pedidos, faturamento, pedidosAtivos}){
+export default function PanelSummary({pedidos, faturamento, pedidosAtivos}){
     return(
          <main className='container'>
 

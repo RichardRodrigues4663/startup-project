@@ -1,4 +1,4 @@
-export default function Configuracoes(){
+export default function Orders(){
     return(
         <div>
             

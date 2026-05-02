@@ -2,7 +2,7 @@ import './index.css'
 
 export default function Header(){
     return(
-        <main className='border d-flex justify-content-end'>
+        <main className='border-bottom d-flex justify-content-end'>
 
             <div className="d-flex justify-content-center align-items-center gap-3 p-3">
 

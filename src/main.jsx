@@ -8,12 +8,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/global.css'
 
 //importando pages
-import Painel from './pages/Painel.jsx'
-import Pedidos from './pages/Pedidos.jsx'
-import Conversas from './pages/Conversas.jsx'
-import Produtos from './pages/Produtos.jsx'
-import Configuracoes from './pages/Configuracoes.jsx'
-import Relatorios from './pages/Relatorios.jsx'
+import Panel from './pages/Panel.jsx'
+import Orders from './pages/Orders.jsx'
+import Chat from './pages/Chat.jsx'
+import Products from './pages/Products.jsx'
+import Settings from './pages/Settings.jsx'
+import Report from "./pages/Report.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,27 +22,27 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Painel></Painel>
+        element: <Panel></Panel>
       },
       {
-        path: 'pedidos',
-        element: <Pedidos></Pedidos>
+        path: 'orders',
+        element: <Orders></Orders>
       },
       {
-        path: 'conversas',
-        element: <Conversas></Conversas>
+        path: 'chat',
+        element: <Chat></Chat>
       },
       {
-        path: 'produtos',
-        element: <Produtos></Produtos>
+        path: 'products',
+        element: <Products></Products>
       },
       {
-        path: 'configuracoes',
-        element: <Configuracoes></Configuracoes>
+        path: 'settings',
+        element: <Settings></Settings>
       },
       {
-        path: 'relatorios',
-        element: <Relatorios></Relatorios>
+        path: 'report',
+        element: <Report></Report>
       },
     ]
   },

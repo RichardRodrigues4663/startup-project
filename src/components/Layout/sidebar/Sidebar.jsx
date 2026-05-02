@@ -1,94 +1,139 @@
-import './index.css'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import './index.css'
 
-export default function Sidebar(){
-    return(
-        <aside className='border p-3'>
-            <header className="header">
-                <div className="d-flex justify-content-center align-items-center flex-column">
-                    <h4>Startup Project</h4>
-                    <span className='fs-6 text-secondary'>Gestão de restaurante</span>
-                </div>
-                {/* <div className='d-flex justify-content-center align-items-center'>
-                    <i className="me-2 fa-solid fa-x"></i>
-                </div> */}
-            </header>
+export default function Sidebar() {
+    const [isOpen, setIsOpen] = useState(false)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1200)
 
-            <hr />
-            
-            <nav>
-                <ul className='d-flex flex-column list-unstyled gap-1'>
-                    <NavLink  
-                    to="/"
-                    end
-                    className={({ isActive }) =>
-                        `item-list ${isActive ? "item-list-active" : ""}`
-                    }role='button'>
-                        <div className='icon-item-list'>
-                            <i className="fa-solid fa-chart-line"></i>
+    useEffect(() => {
+        const handleResize = () => {
+            const mobile = window.innerWidth < 1200
+            setIsMobile(mobile)
+            if (!mobile) setIsOpen(false) // reseta ao voltar para desktop
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    const closeSidebar = () => setIsOpen(false)
+
+    return (
+        <>
+            {isMobile && (
+                <button
+                    className="sidebar-toggle-btn"
+                    onClick={() => setIsOpen(true)}
+                    aria-label="Abrir menu"
+                >
+                    <i className="bx bx-menu"></i>
+                </button>
+            )}
+
+            {/* Overlay escuro atrás do sidebar no mobile */}
+            {isMobile && (
+                <div
+                    className={`sidebar-overlay ${isOpen ? 'sidebar-overlay--visible' : ''}`}
+                    onClick={closeSidebar}
+                />
+            )}
+
+            <aside className={`sidebar border p-3 ${isMobile ? 'sidebar--mobile' : ''} ${isMobile && isOpen ? 'sidebar--open' : ''}`}>
+                <header className="header">
+                    <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex flex-column">
+                            <h4 className="mb-0">Startup Project</h4>
+                            <span className='fs-6 text-secondary'>Gestão de restaurante</span>
                         </div>
-                        Painel
-                    </NavLink>
-                    
-                    <NavLink 
-                    to="/pedidos"
-                    className={({ isActive }) =>
-                        `item-list ${isActive ? "item-list-active" : ""}`
-                    } role='button'>
-                        <div className='icon-item-list'>
-                            <i className="bx bx-shopping-bag"></i>
-                        </div>
-                        Pedidos
-                    </NavLink>
 
-                    <NavLink 
-                    to="/conversas"
-                    className={({ isActive }) =>
-                        `item-list ${isActive ? "item-list-active" : ""}`
-                    } role='button'>
-                        <div className='icon-item-list'>
-                            <i className="fa-regular fa-message"></i>
-                        </div>
-                        Conversas
-                    </NavLink>
+                        {isMobile && (
+                            <button className="sidebar-close-btn ms-2 d-flex" onClick={closeSidebar} aria-label="Fechar menu">
+                                <i className="fa-solid fa-x"></i>
+                            </button>
+                        )}
+                    </div>
+                </header>
 
-                    <NavLink
-                    to="/produtos"
-                    className={({ isActive }) =>
-                        `item-list ${isActive ? "item-list-active" : ""}`
-                    } role='button'>
-                        <div className='icon-item-list'>
-                            <i className="bx bx-box"></i>
-                        </div>
-                        Produtos
-                    </NavLink>
+                <hr />
 
-                    <NavLink 
-                    to="/configuracoes"
-                    className={({ isActive }) =>
-                        `item-list ${isActive ? "item-list-active" : ""}`
-                    }role='button'>
-                        <div className='icon-item-list'>
-                            <i className="bx bx-cog"></i>
-                        </div>
-                        Configurações
-                    </NavLink>
+                <nav>
+                    <ul className='d-flex flex-column list-unstyled gap-1'>
+                        <NavLink
+                            to="/"
+                            end
+                            onClick={isMobile ? closeSidebar : undefined}
+                            className={({ isActive }) =>
+                                `item-list ${isActive ? "item-list-active" : ""}`
+                            } role='button'>
+                            <div className='icon-item-list'>
+                                <i className="fa-solid fa-chart-line"></i>
+                            </div>
+                            Painel
+                        </NavLink>
 
-                    <NavLink 
-                    to="/relatorios"
-                    className={({ isActive }) =>
-                        `item-list ${isActive ? "item-list-active" : ""}`
-                    } role='button'>
-                        <div className='icon-item-list'>
-                            <i className="fa-solid fa-chart-column"></i>
-                        </div>
-                        Relatórios
-                    </NavLink>
-                </ul>
-            </nav>
-            <footer>
+                        <NavLink
+                            to="/orders"
+                            onClick={isMobile ? closeSidebar : undefined}
+                            className={({ isActive }) =>
+                                `item-list ${isActive ? "item-list-active" : ""}`
+                            } role='button'>
+                            <div className='icon-item-list'>
+                                <i className="bx bx-shopping-bag"></i>
+                            </div>
+                            Pedidos
+                        </NavLink>
 
-            </footer>
-        </aside>
+                        <NavLink
+                            to="/chat"
+                            onClick={isMobile ? closeSidebar : undefined}
+                            className={({ isActive }) =>
+                                `item-list ${isActive ? "item-list-active" : ""}`
+                            } role='button'>
+                            <div className='icon-item-list'>
+                                <i className="fa-regular fa-message"></i>
+                            </div>
+                            Conversas
+                        </NavLink>
+
+                        <NavLink
+                            to="/produtos"
+                            onClick={isMobile ? closeSidebar : undefined}
+                            className={({ isActive }) =>
+                                `item-list ${isActive ? "item-list-active" : ""}`
+                            } role='button'>
+                            <div className='icon-item-list'>
+                                <i className="bx bx-box"></i>
+                            </div>
+                            Produtos
+                        </NavLink>
+
+                        <NavLink
+                            to="/settings"
+                            onClick={isMobile ? closeSidebar : undefined}
+                            className={({ isActive }) =>
+                                `item-list ${isActive ? "item-list-active" : ""}`
+                            } role='button'>
+                            <div className='icon-item-list'>
+                                <i className="bx bx-cog"></i>
+                            </div>
+                            Configurações
+                        </NavLink>
+
+                        <NavLink
+                            to="/report"
+                            onClick={isMobile ? closeSidebar : undefined}
+                            className={({ isActive }) =>
+                                `item-list ${isActive ? "item-list-active" : ""}`
+                            } role='button'>
+                            <div className='icon-item-list'>
+                                <i className="fa-solid fa-chart-column"></i>
+                            </div>
+                            Relatórios
+                        </NavLink>
+                    </ul>
+                </nav>
+
+            </aside>
+        </>
     )
 }

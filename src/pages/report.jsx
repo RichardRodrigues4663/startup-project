@@ -1,6 +1,7 @@
-export default function Conversas(){
+export default function Report(){
     return(
         <div>
+            
         </div>
     )
 }
