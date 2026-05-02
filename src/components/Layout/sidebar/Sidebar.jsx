@@ -96,7 +96,7 @@ export default function Sidebar() {
                         </NavLink>
 
                         <NavLink
-                            to="/produtos"
+                            to="/products"
                             onClick={isMobile ? closeSidebar : undefined}
                             className={({ isActive }) =>
                                 `item-list ${isActive ? "item-list-active" : ""}`

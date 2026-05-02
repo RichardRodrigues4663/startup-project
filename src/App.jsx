@@ -2,7 +2,7 @@
 import './App.css'
 
 //importnado compontentes
-import Sidebar from './components/Layout/sidebar/Sidebar.jsx';
+import Sidebar from './components/Layout/Sidebar/Sidebar.jsx';
 import Header from './components/Layout/Header/Header.jsx';
 import { Outlet } from 'react-router';
 
