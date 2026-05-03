@@ -1,10 +1,20 @@
 :root{
+    /* cores primárias */
     --bg-color-light: rgb(236, 255, 236);
-    --bg-color-dark: rgb(51, 117, 51);
     --bg-color-medium: rgb(195, 255, 195);
+    --bg-color-dark: rgb(51, 117, 51);
+
+    /* tons azuis */
+    --bg-color-blue-light: rgb(195, 217, 255);
+    --bg-color-blue-medium: rgb(156, 187, 240);
+    --bg-color-blue-dark: rgb(80, 114, 172);
+
+    /* tons laranjas */
+    --bg-color-orange-light: rgb(255, 214, 195);
+    --bg-color-orange-dark: rgb(233, 129, 81);
 }
 
-.icon-card{
+.icon-card-green{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,4 +23,24 @@
     height: 50px;
     background-color: var(--bg-color-medium);
     color: var(--bg-color-dark);
+}
+.icon-card-blue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-color-blue-light);
+    color: var(--bg-color-blue-dark);
+}
+.icon-card-orange{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-color-orange-light);
+    color: var(--bg-color-orange-dark);
 }
